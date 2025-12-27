@@ -1,0 +1,14 @@
+@use "variables" as *;
+
+@mixin respond-up($breakpoint) {
+  @media (min-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin respond-down($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+  @media (max-width: ($value - 0.02px)) {
+    @content;
+  }
+}

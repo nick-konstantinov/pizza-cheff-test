@@ -1,0 +1,30 @@
+<header class="header">
+  <div class="container">
+    <div class="logo-wrapper">
+      <a href="#" class="logo no-drag no-select">
+        <img class="logo__img no-drag no-select" src="assets/images/logo.png" alt="logo image">
+        <span class="logo__text">Pizza Cheff</span>
+      </a>
+    </div>
+
+    <nav class="nav" [class.active]="isMenuOpen">
+      <a href="#">Пиццы</a>
+      <a href="#">Напитки</a>
+      <a href="#">Доставка и оплата</a>
+      <a href="#">Контакты</a>
+    </nav>
+
+    <button class="burger-btn"
+            (click)="toggleMenu()"
+            [class.active]="isMenuOpen"
+            aria-label="Меню">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <div class="menu-overlay"
+       (click)="closeMenu()"
+       [class.active]="isMenuOpen"></div>
+</header>

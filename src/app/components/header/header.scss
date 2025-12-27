@@ -1,0 +1,237 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.header {
+  width: 100%;
+  background-color: $bg-color;
+  padding: 16px 0;
+  box-shadow: $primary-shadow;
+  position: relative;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    position: relative;
+  }
+
+  .nav {
+    display: flex;
+    gap: 50px;
+    justify-self: center;
+    grid-column: 2;
+    grid-row: 1;
+
+    @include respond-down(md) {
+      gap: 30px;
+    }
+
+    @include respond-down(sm) {
+      display: none;
+
+      &.active {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 80%;
+        max-width: 320px;
+        height: 100vh;
+        background: white;
+        box-shadow: 2px 0 20px rgba(0,0,0,0.2);
+        padding: 90px 30px 30px;
+        z-index: 1002;
+        gap: 0;
+        transform: translateX(-100%);
+        animation: slideIn 0.3s ease forwards;
+        overflow-y: auto;
+
+        a {
+          padding: 15px 0;
+          font-size: 18px;
+          color: $text-color;
+          text-decoration: none;
+          border-bottom: 1px solid #eee;
+          width: 100%;
+          text-align: left;
+          transition: color 0.3s;
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          &:hover {
+            color: $nav-color;
+          }
+        }
+      }
+    }
+
+    a {
+      position: relative;
+      text-decoration: none;
+      color: $nav-color;
+      font-weight: 500;
+      transition: color 0.3s;
+      white-space: nowrap;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background-color: $nav-color;
+        transform: translateX(-50%);
+
+        transition: width 0.3s;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+
+  .logo-wrapper {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 1003;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+    text-decoration: none;
+
+    &__img {
+      user-select: none;
+      width: 40px;
+      height: 40px;
+    }
+
+    &__text {
+      max-width: 85px;
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #ffc468;
+
+      @include respond-down(sm) {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .burger-btn {
+    display: none;
+    grid-column: 3;
+    grid-row: 1;
+
+    @include respond-down(sm) {
+      display: block;
+      position: relative;
+      width: 30px;
+      height: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1003;
+
+      span {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: $nav-color;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+
+        &:nth-child(1) {
+          top: 0;
+        }
+
+        &:nth-child(2) {
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        &:nth-child(3) {
+          bottom: 0;
+        }
+      }
+
+      &.active {
+        span:nth-child(1) {
+          transform: rotate(45deg);
+          top: 50%;
+          margin-top: -1.5px;
+        }
+
+        span:nth-child(2) {
+          opacity: 0;
+          transform: translateX(-10px);
+        }
+
+        span:nth-child(3) {
+          transform: rotate(-45deg);
+          bottom: auto;
+          top: 50%;
+          margin-top: -1.5px;
+        }
+      }
+    }
+  }
+
+  .menu-overlay {
+    display: none;
+
+    @include respond-down(sm) {
+      &.active {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1001;
+        animation: fadeIn 0.3s ease forwards;
+      }
+    }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+body.menu-open {
+  overflow: hidden;
+}
