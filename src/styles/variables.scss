@@ -3,6 +3,7 @@ $primary-color: #ffaf18;
 $secondary-color: #b99050;
 $title-color: #382400;
 $text-color: #181a1a;
+$dark-color: #020303;
 $bg-color: #ffffff;
 $nav-color: #a46b00;
 
@@ -21,5 +22,6 @@ $breakpoints: (
   sm: 576px,
   md: 768px,
   lg: 992px,
-  xl: 1200px,
+  xl: 1100px,
+  xxl: 1200px,
 );

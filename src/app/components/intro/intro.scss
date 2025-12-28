@@ -1,0 +1,105 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-top: 132px;
+
+  @include respond-down(xl) {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
+
+  &__title {
+    font-size: 45px;
+    font-weight: 800;
+    color: $secondary-color;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+
+    @include respond-down(xl) {
+      text-align: center;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    @include respond-down(xl) {
+      align-items: center;
+    }
+
+  }
+
+  &__advantages {
+    padding: 60px 0;
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    @include respond-down(sm) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    @include respond-down(md) {
+      justify-content: center;
+    }
+
+    &-icon {
+      width: 60px;
+      height: 60px;
+    }
+
+    &-title {
+      font-size: 16px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: $primary-color;
+    }
+
+    &-text {
+      padding-top: 5px;
+      font-size: 16px;
+      font-weight: 400;
+      color: $secondary-color;
+
+    }
+  }
+
+  &__btn-wrapper {
+    width: 224px;
+
+    @include respond-down(xl) {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+    }
+
+    @include respond-down(sm) {
+      width: 100%;
+    }
+  }
+
+  &__img {
+    max-width: 50%;
+    height: auto;
+    display: block;
+    flex-shrink: 1;
+
+    @include respond-down(lg) {
+      max-width: 100%;
+    }
+  }
+}
