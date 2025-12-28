@@ -1,0 +1,28 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.products {
+  padding-top: 160px;
+
+  &__title {
+    font-size: 35px;
+    font-weight: 700;
+    color: $secondary-color;
+    text-align: center;
+  }
+
+  &__wrapper {
+    padding-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+
+    @include respond-down(xl) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-down(md) {
+      grid-template-columns: 1fr;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+<div class="products container">
+  <h2 class="products__title">Выберите свою любимую пиццу</h2>
+  <div class="products__wrapper">
+    @for (product of products; track product.id) {
+      <app-product-card [product]="product"></app-product-card>
+    }
+  </div>
+</div>

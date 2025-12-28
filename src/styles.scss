@@ -4,6 +4,15 @@
 @use "styles/utils" as *;
 @use "styles/mixins" as *;
 
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, figure, blockquote, dl, dd {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Muller', sans-serif;
   background-color: $bg-color;
@@ -11,11 +20,20 @@ body {
   font-size: 16px;
 }
 
+ul, ol {
+  list-style: none;
+}
+
 a {
   color: inherit;
   text-decoration: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
 p {
