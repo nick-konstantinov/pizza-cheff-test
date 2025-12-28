@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Button} from '../../ui/button/button';
+import {ScrollService} from '../../services/scroll.service';
 
 @Component({
   selector: 'app-intro',
@@ -10,5 +11,9 @@ import {Button} from '../../ui/button/button';
   styleUrl: './intro.scss',
 })
 export class Intro {
+  constructor(public scrollService: ScrollService) {}
 
+  public scrollToProducts() {
+    this.scrollService.scrollTo('products-section');
+  }
 }
