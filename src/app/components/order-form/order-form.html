@@ -1,0 +1,42 @@
+<form class="order-form" [formGroup]="form" (ngSubmit)="submit()">
+  <div class="form-field">
+    <input type="text" formControlName="name" placeholder="Ваше имя" appNoDotsDirective />
+    @if (name?.touched && name?.invalid) {
+      <span class="error">
+        @if (name?.errors?.['required']) {
+          Введите имя
+        }
+        @if (name?.errors?.['minlength']) {
+          Минимум 2 символа
+        }
+      </span>
+    }
+  </div>
+
+  <div class="form-field">
+    <input type="text" formControlName="address" placeholder="Адрес доставки" />
+    @if (address?.touched && address?.invalid) {
+      <span class="error">
+        @if (address?.errors?.['required']) {
+          Введите адрес
+        }
+        @if (address?.errors?.['minlength']) {
+          Минимум 5 символа
+        }
+      </span>
+    }
+  </div>
+
+  <div class="form-field">
+    <input type="tel" formControlName="phone" placeholder="Телефон" />
+    @if (phone?.touched && phone?.invalid) {
+      <span class="error">Введите корректный телефон</span>
+    }
+  </div>
+
+  <app-button type="submit">Оформить заказ</app-button>
+
+  @if (success) {
+    <app-popup (close)="closePopup()">Спасибо за заказ!</app-popup>
+  }
+</form>

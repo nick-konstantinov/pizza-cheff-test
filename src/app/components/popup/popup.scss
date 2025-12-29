@@ -1,0 +1,40 @@
+@use "../../../styles/variables" as *;
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  min-width: 280px;
+  max-width: 90vw;
+  min-height: 30vh;
+  text-align: center;
+}
+
+.popup__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.popup__content {
+  font-size: 18px;
+  color: $secondary-color;
+}

@@ -6,6 +6,7 @@ $text-color: #181a1a;
 $dark-color: #020303;
 $bg-color: #ffffff;
 $nav-color: #a46b00;
+$border-color: #cba86e;
 
 // Shadows
 $primary-shadow: 0 3px 8px 2px rgba(152, 152, 152, 0.2);
@@ -23,5 +24,6 @@ $breakpoints: (
   md: 768px,
   lg: 992px,
   xl: 1150px,
-  xxl: 1200px,
+  xxl: 1250px,
+  xxxl: 1455px,
 );
